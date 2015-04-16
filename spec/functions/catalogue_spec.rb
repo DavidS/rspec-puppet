@@ -6,6 +6,11 @@ describe 'split' do
       expect(catalogue).to be_a(Puppet::Resource::Catalog)
     end
 
+    it 'should be able to match resources in the catalogue' do
+      pending('API for function example group is different')
+      expect(catalogue).not_to contain_package('packagename')
+    end
+
     it 'catalogue should not change after subject is called' do
       expect(catalogue).to be_a(Puppet::Resource::Catalog)
       pre_id = catalogue.object_id

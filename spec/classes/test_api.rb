@@ -10,6 +10,10 @@ describe 'test::bare_class' do
       subject.should be_a(Puppet::Resource::Catalog)
     end
 
+    it 'should be able to match resources in the catalogue' do
+      expect(catalogue).not_to contain_package('packagename')
+    end
+
     describe 'derivative group' do
       subject { catalogue.resource('Notify', 'foo') }
 
